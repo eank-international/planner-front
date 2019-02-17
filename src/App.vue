@@ -1,18 +1,18 @@
 <template>
   <div id="app">
-    <HelloWorld msg="Eank International is the best!"/>
+    <CalendarView msg="Eank International is the best!"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import CalendarView from './components/CalendarView.vue'
 
 export default 
 {
     name: 'app',
     components:
     {
-        HelloWorld,
+        CalendarView,
     },
 }
 </script>
