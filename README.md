@@ -1,26 +1,11 @@
 # planner-front
 
-## Project setup
+## Show all possible automated commands
 ```
-yarn install
-```
-
-### Compiles and hot-reloads for development
-```
-yarn run serve
+make help
 ```
 
-### Compiles and minifies for production
+## Development
 ```
-yarn run build
-```
-
-### Run your tests
-```
-yarn run test
-```
-
-### Lints and fixes files
-```
-yarn run lint
+make serve
 ```
