@@ -15,8 +15,8 @@ serve: node_modules open-dev-webapp spin-up-development-server ## run the app lo
 
 build: dist ## create production build
 
-#docker:
-#	docker build -t transaction_tagger -f ./deploy/Dockerfile . ## bleble
+docker: ## create Docker image
+	docker build -t eank-planner-front -f ./deploy/Dockerfile .
 
 .PHONY: update test-lint unit e2e
 update: ## update dependencies and write changes to lockfile
