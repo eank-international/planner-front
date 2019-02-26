@@ -1,5 +1,7 @@
 .DEFAULT_GOAL := serve
 
+PORT := 8080
+
 # TODO: After side project envchecer completion
 #CHECK_PREREQUISITES := $(shell ./check-prerequisites)
 #ifneq ($(CHECK_PREREQUISITES),)
@@ -33,7 +35,7 @@ update: ## update dependencies and write changes to lockfile
 spin-up-development-server:
 	yarn run serve
 open-dev-webapp:
-	xdg-open http://localhost:8080/
+	(sleep 5; xdg-open localhost:$(PORT)) &
 #open-coverage-report:
 #	xdg-open coverage/lcov-report/index.html
 #unit-coverage:
