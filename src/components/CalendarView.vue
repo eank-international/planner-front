@@ -1,43 +1,70 @@
 <template>
     <div class="container"> 
           <div></div>
-          <div>Poniedziałek</div>
-          <div>Wtorek</div>
-          <div>Środa</div>
-          <div>Czwartek</div>
-          <div>Piątek</div>
-          <div>Sobota</div>
-          <div>Niedziela</div>
+          <div v-for="day in days" class="day">
+              {{ day }}
+          </div>
           <div>Śniadanie</div>
-          <div>jajecznica</div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
+          <div v-for="breakfast in breakfasts">
+              {{ breakfast }}
+          </div>
           <div>Obiad</div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
+          <div v-for="lunch in lunches">
+              {{ lunch }}
+          </div>
           <div>Kolacja</div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>         
+          <div v-for="dinner in dinners">
+              {{ dinner }}
+          </div>
       </div>
 </template>
 
 <script>
 export default
 {
+    data: () =>
+    ({
+        days:
+        [
+            "poniedziałek",
+            "wtorek",
+            "środa",
+            "czwartek",
+            "piątek",
+            "sobota",
+            "niedziela",
+        ],
+        breakfasts:
+        [
+            "jajecznica #0",
+            "jajecznica #1",
+            "jajecznica #2",
+            "jajecznica #3",
+            "jajecznica #4",
+            "jajecznica #5",
+            "jajecznica #6",
+        ],
+        lunches:
+        [
+            "stek #0",
+            "stek #1",
+            "stek #2",
+            "stek #3",
+            "stek #4",
+            "stek #5",
+            "stek #6",
+        ],
+        dinners:
+        [
+            "sałatka #0",
+            "sałatka #1",
+            "sałatka #2",
+            "sałatka #3",
+            "sałatka #4",
+            "sałatka #5",
+            "sałatka #6",
+        ],
+    }),
     name: 'CalendarView',
     props:
     {
@@ -53,6 +80,10 @@ export default
     grid-template-rows: repeat(4, auto);
     border: 1px solid black;
     
+}
+
+.day {
+    text-transform: capitalize;
 }
 
 .container div{
