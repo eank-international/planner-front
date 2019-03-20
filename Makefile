@@ -1,4 +1,4 @@
-.DEFAULT_GOAL := serve
+.DEFAULT_GOAL := help
 
 PORT := 8080
 
