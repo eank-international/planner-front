@@ -6,14 +6,17 @@
           </div>
           <div>Śniadanie</div>
           <div v-for="breakfast in breakfasts">
+              <input type="text">
               {{ breakfast }}
           </div>
           <div>Obiad</div>
           <div v-for="lunch in lunches">
+              <input type="text">
               {{ lunch }}
           </div>
           <div>Kolacja</div>
           <div v-for="dinner in dinners">
+              <input type="text">
               {{ dinner }}
           </div>
       </div>
@@ -92,5 +95,7 @@ export default
     text-align: center;
 }
 
-
+input {
+    width: 100%;
+}
 </style>
