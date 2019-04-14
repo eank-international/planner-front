@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <CalendarView msg="Eank International is the best!"/>
+    <CalendarView v-bind:daily_meal_plans=daily_meal_plans />
   </div>
 </template>
 
@@ -14,5 +14,53 @@ export default
     {
         CalendarView,
     },
+    data: () =>
+    ({
+        daily_meal_plans:
+        [
+            {
+                day: "poniedziałek",
+                breakfast: "aaa",
+                lunch: "bbb",
+                dinner: "ccc",
+            },
+            {
+                day: "wtorek",
+                breakfast: "aaa",
+                lunch: "bbb",
+                dinner: "ccc",
+            },
+            {
+                day: "środa",
+                breakfast: "aaa",
+                lunch: "bbb",
+                dinner: "ccc",
+            },
+            {
+                day: "czwartek",
+                breakfast: "aaa",
+                lunch: "bbb",
+                dinner: "ccc",
+            },
+            {
+                day: "piątek",
+                breakfast: "aaa",
+                lunch: "bbb",
+                dinner: "ccc",
+            },
+            {
+                day: "sobota",
+                breakfast: "aaa",
+                lunch: "bbb",
+                dinner: "ccc",
+            },
+            {
+                day: "niedziela",
+                breakfast: "aaa",
+                lunch: "bbb",
+                dinner: "ccc",
+            },
+        ],
+    }),
 }
 </script>

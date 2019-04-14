@@ -23,55 +23,33 @@
 </template>
 
 <script>
+const extract_attribute = x => y => x.map(l => l[y]);
+
 export default
 {
-    data: () =>
-    ({
-        days:
-        [
-            "poniedziałek",
-            "wtorek",
-            "środa",
-            "czwartek",
-            "piątek",
-            "sobota",
-            "niedziela",
-        ],
-        breakfasts:
-        [
-            "jajecznica #0",
-            "jajecznica #1",
-            "jajecznica #2",
-            "jajecznica #3",
-            "jajecznica #4",
-            "jajecznica #5",
-            "jajecznica #6",
-        ],
-        lunches:
-        [
-            "stek #0",
-            "stek #1",
-            "stek #2",
-            "stek #3",
-            "stek #4",
-            "stek #5",
-            "stek #6",
-        ],
-        dinners:
-        [
-            "sałatka #0",
-            "sałatka #1",
-            "sałatka #2",
-            "sałatka #3",
-            "sałatka #4",
-            "sałatka #5",
-            "sałatka #6",
-        ],
-    }),
+    computed:
+    {
+        days()
+        {
+            return extract_attribute(this.daily_meal_plans)("day");
+        },
+        breakfasts()
+        {
+            return extract_attribute(this.daily_meal_plans)("breakfast");
+        },
+        lunches()
+        {
+            return extract_attribute(this.daily_meal_plans)("lunch");
+        },
+        dinners()
+        {
+            return extract_attribute(this.daily_meal_plans)("dinner");
+        },
+    },
     name: 'CalendarView',
     props:
     {
-        msg: String,
+        daily_meal_plans: Array,
     },
 }
 </script>
