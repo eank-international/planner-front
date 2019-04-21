@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <CalendarView v-bind:daily_meal_plans=daily_meal_plans />
+    <CalendarView v-on:update:meal=update_meal($event) v-bind:daily_meal_plans=daily_meal_plans />
   </div>
 </template>
 
@@ -13,6 +13,15 @@ export default
     components:
     {
         CalendarView,
+    },
+    methods:
+    {
+        update_meal(event)
+        {
+            console.log(event);
+            const { index, group, value } = event;
+            this.daily_meal_plans[index][group] = value;
+        }
     },
     data: () =>
     ({

@@ -2,49 +2,44 @@
     <div class="container"> 
           <div></div>
           <div v-for="day in days" class="day">
-              {{ day }}
+              {{ day.value }}
           </div>
+
+          <!-- TODO: Extract components -->
           <div>Śniadanie</div>
           <div v-for="breakfast in breakfasts">
-              <input type="text">
-              {{ breakfast }}
+              <input @input="$emit('update:meal', {index: breakfast.index, group: breakfast.group, value: $event.target.value})" v-bind:value=breakfast.value type="text">
           </div>
+
           <div>Obiad</div>
           <div v-for="lunch in lunches">
-              <input type="text">
-              {{ lunch }}
+              <input @input="$emit('update:meal', {index: lunch.index, group: lunch.group, value: $event.target.value})" v-bind:value=lunch.value type="text">
           </div>
+
           <div>Kolacja</div>
           <div v-for="dinner in dinners">
-              <input type="text">
-              {{ dinner }}
+              <input @input="$emit('update:meal', {index: dinner.index, group: dinner.group, value: $event.target.value})" v-bind:value=dinner.value type="text">
           </div>
       </div>
 </template>
 
 <script>
-const extract_attribute = x => y => x.map(l => l[y]);
+const extract_with_location = (plans, label) =>
+{
+    return plans.map((plan, index) => ({
+        index,
+        group: label,
+        value: plan[label],
+    }))
+}
 
 export default
 {
-    computed:
-    {
-        days()
-        {
-            return extract_attribute(this.daily_meal_plans)("day");
-        },
-        breakfasts()
-        {
-            return extract_attribute(this.daily_meal_plans)("breakfast");
-        },
-        lunches()
-        {
-            return extract_attribute(this.daily_meal_plans)("lunch");
-        },
-        dinners()
-        {
-            return extract_attribute(this.daily_meal_plans)("dinner");
-        },
+    computed: {
+        days: function(){ return extract_with_location(this.daily_meal_plans, "day")},
+        breakfasts: function(){ return extract_with_location(this.daily_meal_plans, "breakfast")},
+        lunches: function(){ return extract_with_location(this.daily_meal_plans, "lunch")},
+        dinners: function(){ return extract_with_location(this.daily_meal_plans, "dinner")},
     },
     name: 'CalendarView',
     props:
